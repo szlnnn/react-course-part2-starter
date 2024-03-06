@@ -1,14 +1,18 @@
 import "./App.css";
-import TodoList from "./react-query/TodoList";
-import PostList from "./react-query/PostList";
-import TodoForm from "./react-query/TodoForm";
+import React, { useReducer } from "react";
+import NavBar from "./state-management/NavBar";
+import HomePage from "./state-management/HomePage";
+import AuthProvider from "./state-management/auth/AuthProvider";
+import TaskProvider from "./state-management/tasks/TaskProvider";
 
 function App() {
   return (
-    <>
-      <TodoForm />
-      <TodoList />
-    </>
+    <AuthProvider>
+      <TaskProvider>
+        <NavBar />
+        <HomePage />
+      </TaskProvider>
+    </AuthProvider>
   );
 }
 
